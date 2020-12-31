@@ -1,0 +1,7 @@
+.tag {
+  margin: 1rem;
+  color: #787878;
+}
+.tag::before {
+  content: "#";
+}

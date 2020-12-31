@@ -1,0 +1,8 @@
+.GNB {
+  display: flex;
+  justify-content: space-between;
+}
+
+.GNB h2 {
+  margin: 0;
+}
