@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.b4fe8f282c3bb376f932.css" id="gatsby-global-css">.footer{bottom:0;-ms-flex-pack:center;justify-content:center;-ms-flex-line-pack:center;align-content:center;padding:10px 5px 5px}.notice-container{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-line-pack:center;align-content:center;-ms-flex-align:center;align-items:center;margin-top:25px}@media (max-width:640px - 1px){.notice-container{-ms-flex-pack:distribute;justify-content:space-around}}.notice-container h4{text-align:center;margin:0}.GNB{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.GNB h2{margin:0}*{-webkit-box-sizing:border-box;box-sizing:border-box}html{height:100%}body{margin:0;padding:0;min-height:100%;width:100%}.layout-container{min-height:100vh;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding:20px}.layout__content-container{-ms-flex-positive:1;flex-grow:1;min-width:60%;max-width:960px;margin-left:auto;margin-right:auto}a{text-decoration:none;color:inherit}.tag{margin:1rem;color:#787878}.tag:before{content:"#"}.post-listing{list-style:none}.post-preview{border:1px solid #787878;padding:1rem;display:block;margin-top:1rem}.post-preview header{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-bottom:1rem}.post-preview h2{margin:0}.listing-container{-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center}.listing-container,.paging-container{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.paging-container{min-width:20rem}code[class*=language-],pre[class*=language-]{font-family:Consolas,Menlo,Monaco,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;background:#1d1f21;color:#c5c8c6}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{text-shadow:none;background:#b4b7b4}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b4b7b4}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#969896}.token.punctuation{color:#c5c8c6}.token.namespace{opacity:.7}.token.boolean,.token.number,.token.operator{color:#de935f}.token.property{color:#f0c674}.token.tag{color:#81a2be}.token.string{color:#8abeb7}.token.selector{color:#b294bb}.token.attr-name{color:#de935f}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#8abeb7}.token.attr-value,.token.control,.token.directive,.token.keyword,.token.unit{color:#b5bd68}.token.atrule,.token.regex,.token.statement{color:#8abeb7}.token.placeholder,.token.variable{color:#81a2be}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #fff;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c66}.token.entity{cursor:help}pre>code.highlight{outline:.4em solid #c66;outline-offset:.4em}.post-meta{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center}</style><meta name="generator" content="Gatsby 2.29.3"/><title data-react-helmet="true">Arch linux 설치 가이드 | atobaum</title><meta data-react-helmet="true" name="description" content="설치하기 전에 이 글에 있는 코드 중 는 root 사용자의 프롬프트, 는 일반 사용자 계정의 프롬프트를 나타낸다. 즉  뒤에 오는 명령어는 root…"/><meta data-react-helmet="true" name="image" content="https://gatsby-advanced-starter-demo.netlify.com"/><meta data-react-helmet="true" property="og:url" content="https://gatsby-advanced-starter-demo.netlify.com/arch-linux-설치-가이드"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Arch linux 설치 가이드"/><meta data-react-helmet="true" property="og:description" content="설치하기 전에 이 글에 있는 코드 중 는 root 사용자의 프롬프트, 는 일반 사용자 계정의 프롬프트를 나타낸다. 즉  뒤에 오는 명령어는 root…"/><meta data-react-helmet="true" property="og:image" content="https://gatsby-advanced-starter-demo.netlify.com"/><meta data-react-helmet="true" property="fb:app_id" content=""/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content=""/><meta data-react-helmet="true" name="twitter:title" content="Arch linux 설치 가이드"/><meta data-react-helmet="true" name="twitter:description" content="설치하기 전에 이 글에 있는 코드 중 는 root 사용자의 프롬프트, 는 일반 사용자 계정의 프롬프트를 나타낸다. 즉  뒤에 오는 명령어는 root…"/><meta data-react-helmet="true" name="twitter:image" content="https://gatsby-advanced-starter-demo.netlify.com"/><script data-react-helmet="true" type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","url":"https://gatsby-advanced-starter-demo.netlify.com","name":"Arch linux 설치 가이드","alternateName":"atobaum"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://gatsby-advanced-starter-demo.netlify.com/arch-linux-설치-가이드","name":"Arch linux 설치 가이드","image":"https://gatsby-advanced-starter-demo.netlify.com"}}]},{"@context":"http://schema.org","@type":"BlogPosting","url":"https://gatsby-advanced-starter-demo.netlify.com","name":"Arch linux 설치 가이드","alternateName":"atobaum","headline":"Arch linux 설치 가이드","image":{"@type":"ImageObject","url":"https://gatsby-advanced-starter-demo.netlify.com"},"author":{"@type":"Person","name":"atobaum","email":"atobaum@gmail.com"},"publisher":{"@type":"Organization","name":"atobaum","email":"atobaum@gmail.com","logo":{"@type":"ImageObject","url":"https://gatsby-advanced-starter-demo.netlify.com/logos/logo-1024.png"}},"datePublished":"2020-05-29T00:00:00.000Z","description":"설치하기 전에 이 글에 있는 코드 중 는 root 사용자의 프롬프트, 는 일반 사용자 계정의 프롬프트를 나타낸다. 즉  뒤에 오는 명령어는 root…"}]</script><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512.png"/><link rel="alternate" type="application/rss+xml" title="Gatsby Advanced Starter RSS feed" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-11ced529e28cd61d6f2a.js"/><link as="script" rel="preload" href="/framework-2674486bf225d6eb4cc9.js"/><link as="script" rel="preload" href="/532a2f07-d4557eaf6ec8afcfc04f.js"/><link as="script" rel="preload" href="/app-3ac2700e212070434fba.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/bb7f4ffa492396e127c4cdd5a08e6cd029ef69d4-f6aab4c731391199e123.js"/><link as="script" rel="preload" href="/055375637444d55e4c67d9f02f16300c0f7f7ba2-3f609b02496475fb9b92.js"/><link as="script" rel="preload" href="/e21e9ecfc099254b06ab7617f17d97212f9248d1-8d4ee3d6756fcaa0b68b.js"/><link as="script" rel="preload" href="/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js"/><link as="fetch" rel="preload" href="/page-data/post/arch-linux-설치-가이드/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-container"><header class="GNB"><a href="/"><h2>Atobaum</h2></a><nav><a href="/about">About</a></nav></header><div class="layout__content-container"><div class="post-container"><h1>Arch linux 설치 가이드</h1><div class="post-meta"><div class="post-tag-container"><a style="text-decoration:none" href="/tags/arch"><span class="tag">Arch</span></a><a style="text-decoration:none" href="/tags/guide"><span class="tag">Guide</span></a></div></div><div><h1 id="설치하기-전에" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90" aria-label="설치하기 전에 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치하기 전에</h1>
+<p>이 글에 있는 코드 중 <code class="language-text">#</code>는 root 사용자의 프롬프트, <code class="language-text">$</code>는 일반 사용자 계정의 프롬프트를 나타낸다. 즉 <code class="language-text">#</code> 뒤에 오는 명령어는 root 권한으로 실행시켜야 하고 <code class="language-text">$</code> 뒤에 오는 명령어는 일반 사용자 계정으로 실행시켜도 된다.</p>
+<p>진행하다 어려움이 생기면 <a href="https://wiki.archlinux.org/index.php/Installation_guide">ArchWiki</a>를 참고하라.</p>
+<h1 id="설치-준비" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98-%EC%A4%80%EB%B9%84" aria-label="설치 준비 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치 준비</h1>
+<h2 id="설치-usb-만들기" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98-usb-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="설치 usb 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치 USB 만들기</h2>
+<h3 id="windows" style="position:relative;"><a href="#windows" aria-label="windows permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows</h3>
+<p><a href="https://rufus.ie/">Rufus</a>를 이용한다.</p>
+<h3 id="linux" style="position:relative;"><a href="#linux" aria-label="linux permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Linux</h3>
+<p>USB를 꽂고 아래 명령을 실행해 장치명을 확인한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ lsblk</code></pre></div>
+<p>이제 usb를 포맷하고 iso파일을 구워준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># wipefs --all /dev/sdb
+# dd if=/path/to/iso/file of=/dev/sdb bs=4M &amp;&amp; sync</code></pre></div>
+<p><code class="language-text">/dev/sdb</code>는 위에서 확인한 장치명으로 바꿔주어야한다.</p>
+<h1 id="설치" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98" aria-label="설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치</h1>
+<p>이제 USB를 꼽고 재부팅을 한다. 재부팅 중 바이오스/UEFI 진입키를 이용해 USB로 부팅한다.</p>
+<p>여기서는 UEFI/GPT로 설치한다고 하자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># ls /sys/firmware/efi</code></pre></div>
+<p>결과에 <code class="language-text">efivars</code>가 있으면 UEFI로 설치할 수 있다.</p>
+<h2 id="인터넷-연결-확인" style="position:relative;"><a href="#%EC%9D%B8%ED%84%B0%EB%84%B7-%EC%97%B0%EA%B2%B0-%ED%99%95%EC%9D%B8" aria-label="인터넷 연결 확인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>인터넷 연결 확인</h2>
+<p>Arch linux는 설치할 때 패키지를 인터넷에서 가져오기 때문에 인터넷에 연결되어있어야 한다. 다음 명령으로 인터넷 연결을 확인한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># ping -c 1 www.google.com</code></pre></div>
+<h3 id="wifi로-연결" style="position:relative;"><a href="#wifi%EB%A1%9C-%EC%97%B0%EA%B2%B0" aria-label="wifi로 연결 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wifi로 연결</h3>
+<p>만약 이더넷이 아니라 wifi로 연결할 때는 다음 명령으로 <code class="language-text">$ wiki-menu</code>로 wifi를 연결하자.</p>
+<h2 id="파티션-나누기" style="position:relative;"><a href="#%ED%8C%8C%ED%8B%B0%EC%85%98-%EB%82%98%EB%88%84%EA%B8%B0" aria-label="파티션 나누기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>파티션 나누기</h2>
+<p><code class="language-text">lsblk</code>로 설치할 디스크 이름을 확인해둔다. 이제 파티션 계획을 세워야 한다. 여기서는 다음과 같이 파티션을 만들기로 한다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">파티션 명</th>
+<th>용도</th>
+<th>파일 시스템</th>
+<th>용량</th>
+<th>코드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">/dev/sda1</td>
+<td>EFI 파티션</td>
+<td>FAT32</td>
+<td>200MB</td>
+<td>EF00</td>
+</tr>
+<tr>
+<td align="center">/dev/sda2</td>
+<td>/</td>
+<td>EXT4</td>
+<td>40GB</td>
+<td>8304</td>
+</tr>
+<tr>
+<td align="center">/dev/sda3</td>
+<td>/home</td>
+<td>EXT4</td>
+<td>나머지</td>
+<td>8302</td>
+</tr>
+</tbody>
+</table>
+<p><code class="language-text">gdisk</code>를 이용해 파티션을 나누자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># gdisk /dev/sda</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">`o` 입력: 디스크를 모두 지우고 새로 만든다.
+`n`: 파티션 만들기 (new)
+(default가 1로 되어있는지 확인/아닐 경우 ‘1’을 입력)
+
+첫 섹터는 알아서 계산된다. 따라서 `엔터`
+라스트 섹터는 용량으로 입력할 수 있다. `+200mb`입력
+파일 시스템 코드는 `EF00`(EFI system partition) 입력
+
+`p`를 입력해 제대로 됐는지 확인할 수 있다.
+
+다른 파티션도 반복해서 만든다.
+
+`w`로 저장</code></pre></div>
+<h2 id="포맷" style="position:relative;"><a href="#%ED%8F%AC%EB%A7%B7" aria-label="포맷 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>포맷</h2>
+<p>이제 포맷을 시작한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># mkfs.vfat -F32 /dev/sda1
+# mkfs.ext4 /dev/sda2
+# mkfs.ext4 /dev/sda3</code></pre></div>
+<h2 id="마운트" style="position:relative;"><a href="#%EB%A7%88%EC%9A%B4%ED%8A%B8" aria-label="마운트 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마운트</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># mount /dev/sda2 /mnt
+# mkdir /mnt/boot /mnt/home
+# mount /dev/sda1 /mnt/boot
+# mount /dev/sda3 /mnt/home</code></pre></div>
+<h1 id="패키지-설치" style="position:relative;"><a href="#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98" aria-label="패키지 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>패키지 설치</h1>
+<h3 id="미러-수정" style="position:relative;"><a href="#%EB%AF%B8%EB%9F%AC-%EC%88%98%EC%A0%95" aria-label="미러 수정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>미러 수정</h3>
+<p>패키지를 받아오는 미러를 변경해야 속도가 빠르다. <code class="language-text">/etc/pacman.d/mirrorlist</code> 파일을 수정하자.</p>
+<p><a href="https://www.archlinux.org/mirrorlist/">아치 리눅스 미러리스트 페이지</a>에서 참고하거나 다음 미러를 사용한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">##
+## Arch Linux repository mirrorlist
+## Filtered by mirror score from mirror status page
+## Generated on 2020-05-21
+##
+
+## South Korea
+#Server = http://mirror.premi.st/archlinux/$repo/os/$arch
+## South Korea
+#Server = https://ftp.lanet.kr/pub/archlinux/$repo/os/$arch
+## South Korea
+#Server = http://ftp.harukasan.org/archlinux/$repo/os/$arch
+## South Korea
+#Server = https://ftp.harukasan.org/archlinux/$repo/os/$arch
+## South Korea
+#Server = http://ftp.lanet.kr/pub/archlinux/$repo/os/$arch</code></pre></div>
+<h2 id="기본-패키지-설치" style="position:relative;"><a href="#%EA%B8%B0%EB%B3%B8-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98" aria-label="기본 패키지 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>기본 패키지 설치</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">pacstrap /mnt base linux linux-firmware base-devel</code></pre></div>
+<p>설치 완료되면 마운트 정보를 만들고 시스템에 진입한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+# arch-chroot /mnt</code></pre></div>
+<h1 id="설정" style="position:relative;"><a href="#%EC%84%A4%EC%A0%95" aria-label="설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설정</h1>
+<p>먼저 필요한 패키지들을 설치한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># pacman -Syu # 패키지 업데이트
+# pacman -S vim ntp networkmanager grub efibootmgr git xorg-server xorg-apps</code></pre></div>
+<ul>
+<li>vim: 텍스트 에디터</li>
+<li>ntp: 시간 설정</li>
+<li>networkmanager: 이더넷만 사용할 것이라면 dhcpd도 고려해봐라.</li>
+<li>grub: 부트로더</li>
+<li>efibootmfr: UEFI 부팅시 필요하다.</li>
+<li>git</li>
+<li>xorg-server, xorg-apps: X11 server</li>
+</ul>
+<h2 id="타임존-설정" style="position:relative;"><a href="#%ED%83%80%EC%9E%84%EC%A1%B4-%EC%84%A4%EC%A0%95" aria-label="타임존 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>타임존 설정</h2>
+<p>한국 시간대로 설정한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime</code></pre></div>
+<blockquote>
+<p>ln: 링크를 만드는 명령어.
+-s: symbolic link
+-f: force; replace if already exists</p>
+</blockquote>
+<h2 id="시간동기화" style="position:relative;"><a href="#%EC%8B%9C%EA%B0%84%EB%8F%99%EA%B8%B0%ED%99%94" aria-label="시간동기화 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>시간동기화</h2>
+<p>시간을 서버에서 가져와 동기화하자.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># ntpdate time.kriss.re.kr  # 실패하면 time2.kriss.re.kr 를 이용.
+# hwclock -w				# 하드웨어 시간 동기화</code></pre></div>
+<h2 id="로케일-설정" style="position:relative;"><a href="#%EB%A1%9C%EC%BC%80%EC%9D%BC-%EC%84%A4%EC%A0%95" aria-label="로케일 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>로케일 설정</h2>
+<h3 id="로케일-활성화" style="position:relative;"><a href="#%EB%A1%9C%EC%BC%80%EC%9D%BC-%ED%99%9C%EC%84%B1%ED%99%94" aria-label="로케일 활성화 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>로케일 활성화</h3>
+<p>로케일을 시스템에서 사용하려면 활성화해야한다. <code class="language-text">/etc/locale.gen</code> 파일에서 필요한 로케일의 주석을 해제한다. 여기서는 en<em>US.UTF-8 UTF-8과 ko</em>KR.UTF-8 UTF-8 사용한다. 그 후 다음 명령어로 갱신한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># locale-gen</code></pre></div>
+<h3 id="시스템-로케일-설정" style="position:relative;"><a href="#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A1%9C%EC%BC%80%EC%9D%BC-%EC%84%A4%EC%A0%95" aria-label="시스템 로케일 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>시스템 로케일 설정</h3>
+<p> <code class="language-text">/etc/locale.conf</code> 작성한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code></pre></div>
+<h2 id="사용자-설정" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%84%A4%EC%A0%95" aria-label="사용자 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용자 설정</h2>
+<h3 id="root-패스워드-수정" style="position:relative;"><a href="#root-%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C-%EC%88%98%EC%A0%95" aria-label="root 패스워드 수정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>root 패스워드 수정</h3>
+<p>root 계정을 패스워드 없이 사용하는 것은 보안상 위험하다. 따라서 root 계정의 패스워드를 변경하자:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># passwd</code></pre></div>
+<h3 id="사용자-계정-추가" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B3%84%EC%A0%95-%EC%B6%94%EA%B0%80" aria-label="사용자 계정 추가 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용자 계정 추가</h3>
+<p>사용자 계정을 추가한다:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># useradd -m -g users -G wheel &lt;사용자_이름&gt;
+# passwd &lt;사용자_이름&gt;</code></pre></div>
+<blockquote>
+<p>-m: home폴더 만들기
+-g: group
+-G secondary group
+wheel은 관리자 그룹이다. <code class="language-text">sudo</code>를 사용하기 위해 주가한다. <a href="https://wiki.archlinux.org/index.php/Users_and_groups#Group_list">ArchWiki 그룹 리스트</a> 참고</p>
+</blockquote>
+<h3 id="sudo-설정" style="position:relative;"><a href="#sudo-%EC%84%A4%EC%A0%95" aria-label="sudo 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sudo 설정</h3>
+<p>이제 <code class="language-text">/etc/sudoers</code>를 수정해 <code class="language-text">wheel</code>그룹이 <code class="language-text">sudo</code>를 사용할 수 있게 설정한다. 그런데 직접 수정하기보다 <code class="language-text">visudo</code>를 이용해 수정하기를 권장한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># visudo</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># %wheel ALL=	//주석을 해제해준다:
+%wheel ALL=</code></pre></div>
+<h2 id="네트워크-설정" style="position:relative;"><a href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95" aria-label="네트워크 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>네트워크 설정</h2>
+<h3 id="호스트-이름-및-hosts설정" style="position:relative;"><a href="#%ED%98%B8%EC%8A%A4%ED%8A%B8-%EC%9D%B4%EB%A6%84-%EB%B0%8F-hosts%EC%84%A4%EC%A0%95" aria-label="호스트 이름 및 hosts설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>호스트 이름 및 hosts설정</h3>
+<p>컴퓨터의 이름을 설정해준다. 기호에 맞게 바꿔라.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># echo &quot;helloarch&quot; &gt; /etc/hostname</code></pre></div>
+<p><code class="language-text">/etc/hosts</code> 파일을 다음과 같이 수정한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">127.0.0.1 localhost
+::1 localhost
+127.0.1.1 helloarch.localdomain helloarch</code></pre></div>
+<h3 id="네트워크-설정-1" style="position:relative;"><a href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95-1" aria-label="네트워크 설정 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>네트워크 설정</h3>
+<p><a href="https://wiki.archlinux.org/index.php/NetworkManager">NetworkManager</a>를 활성화한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># systemctl enable NetworkManager.service</code></pre></div>
+<h2 id="부트로더-설치" style="position:relative;"><a href="#%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94-%EC%84%A4%EC%B9%98" aria-label="부트로더 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>부트로더 설치</h2>
+<p><code class="language-text">grub</code>을 사용한다. UEFI 부팅시 <code class="language-text">efibootmgr</code>도 설치해야한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># grub-install /dev/sda
+# grub-mkconfig -o /boot/grub/grub.cfg</code></pre></div>
+<h3 id="windows-dual-booting" style="position:relative;"><a href="#windows-dual-booting" aria-label="windows dual booting permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows dual booting</h3>
+<p><code class="language-text">grub-mkconfig</code>를 하기 전에 <code class="language-text">os-prober</code>를 설치하면 windows도 capture한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># pacman -S os-prober
+# grub-mkconfig -o /boot/grub/grub.cfg</code></pre></div>
+<p>윈도우는 localtime, linux는 UTC를 사용하기 때문에 둘 중 하나를 바꿔줘야 한다. 여기서는 linux가 localtime을 사용하도록 바꾼다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># timedatectl set-local-rtc 1 --adjust-system-clock</code></pre></div>
+<h2 id="재부팅" style="position:relative;"><a href="#%EC%9E%AC%EB%B6%80%ED%8C%85" aria-label="재부팅 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>재부팅</h2>
+<p>만약 위에서 networkmanager나 dhcpcd를 설정하지 않았으면 재부팅 했을 때 네트워크가 작동하지 않는다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># exit # chroot 나오기
+# umount -R /mnt
+# reboot</code></pre></div>
+<h1 id="설치-후에-할-일들" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98-%ED%9B%84%EC%97%90-%ED%95%A0-%EC%9D%BC%EB%93%A4" aria-label="설치 후에 할 일들 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치 후에 할 일들</h1>
+<h2 id="microcode" style="position:relative;"><a href="#microcode" aria-label="microcode permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>microcode</h2>
+<p><a href="https://wiki.archlinux.org/index.php/Microcode">Arch Wiki-Microcode</a></p>
+<ul>
+<li><code class="language-text">inter-ucode</code> (pacman)</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># grub-mkconfig -o /boot/grub/grub.cfg</code></pre></div>
+<h2 id="yay-설치" style="position:relative;"><a href="#yay-%EC%84%A4%EC%B9%98" aria-label="yay 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>yay 설치</h2>
+<p>yay는 AUR을 사용하기 편하게 해주는 wrapper이다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># git clone https://aur.archlinux.org/yay.git
+# cd yay
+# makepkg -si</code></pre></div>
+<h3 id="간단한-사용법" style="position:relative;"><a href="#%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9%EB%B2%95" aria-label="간단한 사용법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>간단한 사용법</h3>
+<ul>
+<li>package 동기화 :<code class="language-text">yay</code></li>
+<li>검색: <code class="language-text">yay -Ss &lt;package name&gt;</code></li>
+<li>설치: <code class="language-text">yay -S &lt;package name&gt;</code></li>
+</ul>
+<h2 id="앞으로-설치할-패키지들" style="position:relative;"><a href="#%EC%95%9E%EC%9C%BC%EB%A1%9C-%EC%84%A4%EC%B9%98%ED%95%A0-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%93%A4" aria-label="앞으로 설치할 패키지들 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>앞으로 설치할 패키지들</h2>
+<p>한꺼번에 설치하기 위해 적어놓는다. 알아서 취사선택</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># pacman -S xf-86-video-intel xorg-server xorg-apps compton lightdm lightdm-gtk-greeter uim intel-ucode xautomation neovim rxvt-unicode ranger xcape feh zsh als-utils pulseaudio pavucontrol qbittorent vlc cups unclutter</code></pre></div>
+<ul>
+<li>xf86-video-intel: intel graphics driver</li>
+<li>lightdm: display manager</li>
+<li>compton: compositer</li>
+<li>uim: 한글 입력기</li>
+<li>intel-ucode: microcode</li>
+<li>xautomation: xte를 사용하기 위해. xte는 fake input generator</li>
+<li>neovim: improved vim</li>
+<li>rxvt-unicode: terminal emulator</li>
+<li>ranger: terminal based file explorer</li>
+<li>xcape</li>
+<li>feh: image viewer &#x26; background setter</li>
+<li>zsh: shell</li>
+<li>pulseaudio: audio server</li>
+<li>pavucontrol: pulseaudio front end</li>
+<li>qbittorent</li>
+<li>vlc</li>
+<li>cups: printer server</li>
+<li>unclutter: 마우스 사용 안할 때 마우스 포인터 숨기기</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ yay -S i3-gaps rofi polybar siji ttf-nanum xbindkeys brave xidlehook visual-studio-code-bin</code></pre></div>
+<ul>
+<li>i3-gaps: window manager</li>
+<li>rofi: app launcher</li>
+<li>polybar: status bar</li>
+<li>sifi: icon font for polybar</li>
+<li>ttf-nanum: 한글 폰트</li>
+<li>xbindkeys</li>
+<li>brave: internet browser</li>
+<li>xidlehook: for auto suspend</li>
+<li>visual-studio-code-bin: VS Code</li>
+</ul>
+<h2 id="그래픽-환경-설치" style="position:relative;"><a href="#%EA%B7%B8%EB%9E%98%ED%94%BD-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%B9%98" aria-label="그래픽 환경 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>그래픽 환경 설치</h2>
+<h3 id="graphic-driver" style="position:relative;"><a href="#graphic-driver" aria-label="graphic driver permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Graphic Driver</h3>
+<p>그래픽 카드 종류를 확인한다:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ lspci | grep -e VGA -e 3D</code></pre></div>
+<p>인텔의 경우 <code class="language-text">xf86-video-intel</code>을 설치한다. <a href="https://wiki.archlinux.org/index.php/Xorg#Driver_installation">ArchWiki 그래픽 드라이버</a> 참고.</p>
+<h3 id="x11-server-설치" style="position:relative;"><a href="#x11-server-%EC%84%A4%EC%B9%98" aria-label="x11 server 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>X11 Server 설치</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># pacman -S xorg-server xorg-apps</code></pre></div>
+<p>이제 desktop environment/window manager를 선택해야한다. 여기서는 window manager로 i3-gaps, display manager로 lightdm을 사용하기로 한다.</p>
+<h3 id="lightdm-설치" style="position:relative;"><a href="#lightdm-%EC%84%A4%EC%B9%98" aria-label="lightdm 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>lightdm 설치</h3>
+<p>lightdm은 greeter를 따로 설치해줘야한다.</p>
+<ul>
+<li><code class="language-text">lightdm</code> (pacman)</li>
+<li><code class="language-text">lightdm-gtk-greeter</code> (pacman)</li>
+</ul>
+<p><code class="language-text">/etc/lightdm/lightdm.conf</code>에서 greeter를 설정한다:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[SeatDefaults]
+greeter-session=lightdm-gtk-greeter</code></pre></div>
+<p>위의 <code class="language-text">lightdm-gtk-greeter</code>를 알맞게 변경해준다. <code class="language-text">/usr/share/xgreeters/*.desktop</code>에서 확인할 수 있다.</p>
+<p>이제 lightdm을 활성화 시켜준다. enable을 start로 바꾸면 바로 실행할 수 있다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># systemctl enable lightdm</code></pre></div>
+<h3 id="한글화" style="position:relative;"><a href="#%ED%95%9C%EA%B8%80%ED%99%94" aria-label="한글화 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>한글화</h3>
+<p>한글화를 위해 글꼴과 입력기를 설치한다.</p>
+<ul>
+<li><code class="language-text">ttf-nanum</code> (AUR)</li>
+<li><code class="language-text">uim</code> (pacman)</li>
+</ul>
+<p><code class="language-text">~/.xprofile</code>을 수정한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">export GTK_IM_MODULE=&#39;uim&#39;
+export QT_IM_MODULE=&#39;uim&#39;
+uim-xim &amp;
+export XMODIFIERS=&#39;@im=uim&#39;</code></pre></div>
+<h2 id="기타" style="position:relative;"><a href="#%EA%B8%B0%ED%83%80" aria-label="기타 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>기타</h2>
+<h3 id="마우스-키-바인딩" style="position:relative;"><a href="#%EB%A7%88%EC%9A%B0%EC%8A%A4-%ED%82%A4-%EB%B0%94%EC%9D%B8%EB%94%A9" aria-label="마우스 키 바인딩 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마우스 키 바인딩</h3>
+<ul>
+<li><code class="language-text">xbindkeys</code> (AUR)</li>
+<li><code class="language-text">xautomation</code> (pacman)</li>
+</ul>
+<h3 id="pip-설치" style="position:relative;"><a href="#pip-%EC%84%A4%EC%B9%98" aria-label="pip 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pip 설치</h3>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">curl https://bootstrap.pypa.io/get-python -o get-pip.py
+sudo python get-pip.py</code></pre></div>
+<h3 id="오디오-설정" style="position:relative;"><a href="#%EC%98%A4%EB%94%94%EC%98%A4-%EC%84%A4%EC%A0%95" aria-label="오디오 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>오디오 설정</h3>
+<h4 id="change-default-sink" style="position:relative;"><a href="#change-default-sink" aria-label="change default sink permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change default sink</h4>
+<p><code class="language-text">/etc/pulse/default.pa</code></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">load-module module-stream-resotre restore_devide=false</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ pacmd list-sinks
+$ pacmd set-default-sink &lt;number or name&gt;</code></pre></div>
+<h3 id="프린터" style="position:relative;"><a href="#%ED%94%84%EB%A6%B0%ED%84%B0" aria-label="프린터 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>프린터</h3>
+<p><code class="language-text">cups</code> 설치 후 </p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># systemctl start org.cups.cupsd.service</code></pre></div>
+<h4 id="프린터-드라이브" style="position:relative;"><a href="#%ED%94%84%EB%A6%B0%ED%84%B0-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C" aria-label="프린터 드라이브 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>프린터 드라이브</h4>
+<p>yay -S brother-hll2360d</p>
+<p><a href="http://localhost:631/%EC%97%90%EC%84%9C">http://localhost:631/에서</a> add printer</p>
+<p>참고
+<a href="https://whjeon.com/arch-install/">블로그</a></p>
+<h2 id="설치할-것" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98%ED%95%A0-%EA%B2%83" aria-label="설치할 것 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치할 것</h2>
+<ul>
+<li>dunst: notification</li>
+<li>xclip: clipboard</li>
+<li>flameshot: screenshot</li>
+<li>thunar</li>
+<li>zathura: pdf viewer</li>
+<li>zathura-pdf-poppler: pdf viewer</li>
+<li>okular</li>
+</ul></div><div></div></div></div><footer class="footer"><div class="notice-container"><h4>Copyright © 2020, atobaum All rights reserved.</h4><a href="/rss.xml"><button type="button">RSS</button></a><h4>Based on<!-- --> <a href="https://github.com/Vagr9K/gatsby-advanced-starter">Gatsby Advanced Starter</a>.</h4></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/post/arch-linux-설치-가이드";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d1682d032ffba6afc377.js"],"app":["/app-3ac2700e212070434fba.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-1f3c0ae858ea5441e423.js"],"component---src-pages-about-jsx":["/component---src-pages-about-jsx-b463fead422289c71f6e.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-09eea3441d0c954749b1.js"],"component---src-templates-listing-jsx":["/component---src-templates-listing-jsx-c9e8d6855e94dbf1bbfc.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-b4e3813960dd4b6e3457.js"]};/*]]>*/</script><script src="/polyfill-d1682d032ffba6afc377.js" nomodule=""></script><script src="/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js" async=""></script><script src="/e21e9ecfc099254b06ab7617f17d97212f9248d1-8d4ee3d6756fcaa0b68b.js" async=""></script><script src="/055375637444d55e4c67d9f02f16300c0f7f7ba2-3f609b02496475fb9b92.js" async=""></script><script src="/bb7f4ffa492396e127c4cdd5a08e6cd029ef69d4-f6aab4c731391199e123.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-3ac2700e212070434fba.js" async=""></script><script src="/532a2f07-d4557eaf6ec8afcfc04f.js" async=""></script><script src="/framework-2674486bf225d6eb4cc9.js" async=""></script><script src="/webpack-runtime-11ced529e28cd61d6f2a.js" async=""></script></body></html>

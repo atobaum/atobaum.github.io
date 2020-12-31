@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.b4fe8f282c3bb376f932.css" id="gatsby-global-css">.footer{bottom:0;-ms-flex-pack:center;justify-content:center;-ms-flex-line-pack:center;align-content:center;padding:10px 5px 5px}.notice-container{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-line-pack:center;align-content:center;-ms-flex-align:center;align-items:center;margin-top:25px}@media (max-width:640px - 1px){.notice-container{-ms-flex-pack:distribute;justify-content:space-around}}.notice-container h4{text-align:center;margin:0}.GNB{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.GNB h2{margin:0}*{-webkit-box-sizing:border-box;box-sizing:border-box}html{height:100%}body{margin:0;padding:0;min-height:100%;width:100%}.layout-container{min-height:100vh;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding:20px}.layout__content-container{-ms-flex-positive:1;flex-grow:1;min-width:60%;max-width:960px;margin-left:auto;margin-right:auto}a{text-decoration:none;color:inherit}.tag{margin:1rem;color:#787878}.tag:before{content:"#"}.post-listing{list-style:none}.post-preview{border:1px solid #787878;padding:1rem;display:block;margin-top:1rem}.post-preview header{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-bottom:1rem}.post-preview h2{margin:0}.listing-container{-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center}.listing-container,.paging-container{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.paging-container{min-width:20rem}code[class*=language-],pre[class*=language-]{font-family:Consolas,Menlo,Monaco,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;background:#1d1f21;color:#c5c8c6}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{text-shadow:none;background:#b4b7b4}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b4b7b4}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#969896}.token.punctuation{color:#c5c8c6}.token.namespace{opacity:.7}.token.boolean,.token.number,.token.operator{color:#de935f}.token.property{color:#f0c674}.token.tag{color:#81a2be}.token.string{color:#8abeb7}.token.selector{color:#b294bb}.token.attr-name{color:#de935f}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#8abeb7}.token.attr-value,.token.control,.token.directive,.token.keyword,.token.unit{color:#b5bd68}.token.atrule,.token.regex,.token.statement{color:#8abeb7}.token.placeholder,.token.variable{color:#81a2be}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #fff;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c66}.token.entity{cursor:help}pre>code.highlight{outline:.4em solid #c66;outline-offset:.4em}.post-meta{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center}</style><meta name="generator" content="Gatsby 2.29.3"/><title data-react-helmet="true">HTTP 완벽 가이드 정리 | atobaum</title><meta data-react-helmet="true" name="description" content="1장 HTTP는 단순한 문자열. 요청, 헤더, 본문으로 이루어짐. HTTP는 tcp로 전달됨(3은 udp쓴다던데...)
+tcp는 오류 없는 데이터 전송 순서에 맞는 전달 조각 나지 않는 데이터 스트림
+을 제공한다. telnet으로 HTTP…"/><meta data-react-helmet="true" name="image" content="https://gatsby-advanced-starter-demo.netlify.com"/><meta data-react-helmet="true" property="og:url" content="https://gatsby-advanced-starter-demo.netlify.com/http-완벽-가이드-정리"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="HTTP 완벽 가이드 정리"/><meta data-react-helmet="true" property="og:description" content="1장 HTTP는 단순한 문자열. 요청, 헤더, 본문으로 이루어짐. HTTP는 tcp로 전달됨(3은 udp쓴다던데...)
+tcp는 오류 없는 데이터 전송 순서에 맞는 전달 조각 나지 않는 데이터 스트림
+을 제공한다. telnet으로 HTTP…"/><meta data-react-helmet="true" property="og:image" content="https://gatsby-advanced-starter-demo.netlify.com"/><meta data-react-helmet="true" property="fb:app_id" content=""/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content=""/><meta data-react-helmet="true" name="twitter:title" content="HTTP 완벽 가이드 정리"/><meta data-react-helmet="true" name="twitter:description" content="1장 HTTP는 단순한 문자열. 요청, 헤더, 본문으로 이루어짐. HTTP는 tcp로 전달됨(3은 udp쓴다던데...)
+tcp는 오류 없는 데이터 전송 순서에 맞는 전달 조각 나지 않는 데이터 스트림
+을 제공한다. telnet으로 HTTP…"/><meta data-react-helmet="true" name="twitter:image" content="https://gatsby-advanced-starter-demo.netlify.com"/><script data-react-helmet="true" type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","url":"https://gatsby-advanced-starter-demo.netlify.com","name":"HTTP 완벽 가이드 정리","alternateName":"atobaum"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://gatsby-advanced-starter-demo.netlify.com/http-완벽-가이드-정리","name":"HTTP 완벽 가이드 정리","image":"https://gatsby-advanced-starter-demo.netlify.com"}}]},{"@context":"http://schema.org","@type":"BlogPosting","url":"https://gatsby-advanced-starter-demo.netlify.com","name":"HTTP 완벽 가이드 정리","alternateName":"atobaum","headline":"HTTP 완벽 가이드 정리","image":{"@type":"ImageObject","url":"https://gatsby-advanced-starter-demo.netlify.com"},"author":{"@type":"Person","name":"atobaum","email":"atobaum@gmail.com"},"publisher":{"@type":"Organization","name":"atobaum","email":"atobaum@gmail.com","logo":{"@type":"ImageObject","url":"https://gatsby-advanced-starter-demo.netlify.com/logos/logo-1024.png"}},"datePublished":"2020-07-27T00:00:00.000Z","description":"1장 HTTP는 단순한 문자열. 요청, 헤더, 본문으로 이루어짐. HTTP는 tcp로 전달됨(3은 udp쓴다던데...)\ntcp는 오류 없는 데이터 전송 순서에 맞는 전달 조각 나지 않는 데이터 스트림\n을 제공한다. telnet으로 HTTP…"}]</script><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512.png"/><link rel="alternate" type="application/rss+xml" title="Gatsby Advanced Starter RSS feed" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-11ced529e28cd61d6f2a.js"/><link as="script" rel="preload" href="/framework-2674486bf225d6eb4cc9.js"/><link as="script" rel="preload" href="/532a2f07-d4557eaf6ec8afcfc04f.js"/><link as="script" rel="preload" href="/app-3ac2700e212070434fba.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/bb7f4ffa492396e127c4cdd5a08e6cd029ef69d4-f6aab4c731391199e123.js"/><link as="script" rel="preload" href="/055375637444d55e4c67d9f02f16300c0f7f7ba2-3f609b02496475fb9b92.js"/><link as="script" rel="preload" href="/e21e9ecfc099254b06ab7617f17d97212f9248d1-8d4ee3d6756fcaa0b68b.js"/><link as="script" rel="preload" href="/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js"/><link as="fetch" rel="preload" href="/page-data/post/http-완벽-가이드-정리/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-container"><header class="GNB"><a href="/"><h2>Atobaum</h2></a><nav><a href="/about">About</a></nav></header><div class="layout__content-container"><div class="post-container"><h1>HTTP 완벽 가이드 정리</h1><div class="post-meta"><div class="post-tag-container"><a style="text-decoration:none" href="/tags/http"><span class="tag">HTTP</span></a><a style="text-decoration:none" href="/tags/book"><span class="tag">Book</span></a><a style="text-decoration:none" href="/tags/summary"><span class="tag">Summary</span></a></div></div><div><h1 id="1장" style="position:relative;"><a href="#1%EC%9E%A5" aria-label="1장 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1장</h1>
+<p>HTTP는 단순한 문자열. 요청, 헤더, 본문으로 이루어짐.</p>
+<p>HTTP는 tcp로 전달됨(3은 udp쓴다던데...)
+tcp는</p>
+<ul>
+<li>오류 없는 데이터 전송</li>
+<li>순서에 맞는 전달</li>
+<li>조각 나지 않는 데이터 스트림
+을 제공한다.</li>
+</ul>
+<p>telnet으로 HTTP 요청을 해보자</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ telnet www.google.com <span class="token number">80</span>
+GET / HTTP/1.1
+HOST: www.google.com</code></pre></div>
+<p>웹 애플리케이션 중 특이한 사람들:</p>
+<ul>
+<li>프락시</li>
+<li>캐시</li>
+<li>게이트웨이</li>
+<li>터널</li>
+<li>에이전트
+자세한건 후술.</li>
+</ul>
+<h1 id="2장-url과-리소스" style="position:relative;"><a href="#2%EC%9E%A5-url%EA%B3%BC-%EB%A6%AC%EC%86%8C%EC%8A%A4" aria-label="2장 url과 리소스 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2장 URL과 리소스</h1>
+<p>헤더는 CRLF로 줄바꿈. body가 없어도 빈줄(CRLF)로 끝나야한다.</p>
+<h1 id="4장-커넥션-관리" style="position:relative;"><a href="#4%EC%9E%A5-%EC%BB%A4%EB%84%A5%EC%85%98-%EA%B4%80%EB%A6%AC" aria-label="4장 커넥션 관리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4장 커넥션 관리</h1>
+<ul>
+<li>HTTP는 TCP/IP를 이용.</li>
+<li>
+<p>HTTP 트랜잭션의 성능은 그 아래 계층인 TCP 성능에 영향르 받는다.</p>
+<h2 id="tcp-성능" style="position:relative;"><a href="#tcp-%EC%84%B1%EB%8A%A5" aria-label="tcp 성능 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TCP 성능</h2>
+</li>
+<li>HTTP 트랜잭션을 처리하는 시간보다 TCP 연결 설정, 요청, 응답메시지 전송이 더 오래걸린다.</li>
+<li>TCP는 비싸다. 대부분의 HTTP 지연은 TCP 지연때문에 발생</li>
+<li>TCP 연결 핸드셰이크 지연</li>
+<li>확인 응답 지연: tcp 패킷의 확인 응답은 크기가 작아서 같은 곳으로 송출되는 패킷에 편승 시키는데 요청과 응답으로만 이루어지는 http 동작 방식은 기회를 감소시킨다.</li>
+<li>TCP slow start: tcp 연결이 만들어 진 후 시간이 지나면서 최대 속도제한이 늘어난다. 다른말로 초반에는 느리다.</li>
+<li>네이글 알고리즘: 크기가 작은 테이터는 한데 모아서 보낸다. </li>
+</ul>
+<h2 id="http-커넥션-관리" style="position:relative;"><a href="#http-%EC%BB%A4%EB%84%A5%EC%85%98-%EA%B4%80%EB%A6%AC" aria-label="http 커넥션 관리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP 커넥션 관리</h2>
+<p>어떻게 하면 HTTP 커넥션 성능을 향상시킬 수 있을 까?</p>
+<h3 id="parallel-connection" style="position:relative;"><a href="#parallel-connection" aria-label="parallel connection permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parallel connection</h3>
+<p>여러 커넥션으로 한꺼번에 처리. 그러나 대역폭이 충분하지 않으면 효과가 없고 오히려 관리비용때문에 느려질 수도 있다.
+브라우저는보총 적은 수(6-8개)의 커넥션을 사용한다.</p>
+<h3 id="persistent-connection" style="position:relative;"><a href="#persistent-connection" aria-label="persistent connection permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Persistent connection</h3>
+<p>한 페이지에 있는 링크들은 대부분 같은 서버에 있다. TCP 연결을 일회용으로 쓰지 않고 재사용. TCP 연결 지연 시간을 줄일 수 있다. 게다가 tcp의 느린 시작으로 인한 지연도 줄일 수 있다.</p>
+<p>keep-alive 헤더는 HTTP/1.1에서는 빠졌다. 그러나 아직 사용되고 있다. (HTTP/1.1에서는 지속 커넥션이 기본). 그러나 연결을 보장하지는 않는다. 누군가 언제든지 연결을 끊을 수 있음.</p>
+<p>중간에 프록시 서버가 있으면 문제가 생길 수 있다. 만약 프록시가 헤더를 살펴보지 않고 그냥 전달만 한다면 클라이언트와 서버는 각각 프록시와 연결이 지속될거라고 기대하는데 프록시는 양쪽과 연결을 끊어버린다. 이를 피하기 위해 중계 서버를 통해 이뤄질 경우 클라이언트는 Proxy-Connection 헤더를 사용하기도 한다. 만약 프록시가 멍청하다면 서버는 Connection 헤더가 없어서 연결을 끊고 프록시가 똑똑하면 Proxy-Connection을 Connection으로 바꿔보내고 연결을 유지한다. </p>
+<p>HTTP/1.1에서는 별도 설정을 하지 않는 한 모든 커넥션을 지속 커넥션으로 간주. HTTP/1.1 어플리케이션은 Connection: close를 명시해야한다.</p>
+<h3 id="pipelined-connection" style="position:relative;"><a href="#pipelined-connection" aria-label="pipelined connection permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pipelined connection</h3>
+<p>한 커넥션에서 응답이 도착하기 전에 요청을 보내기.</p>
+<ul>
+<li>지속 커넥션에서만 이용해야한다.</li>
+<li>HTTP 메시지는 순번이 정해져있지 않아 요청 순서과 똑같이 응답이 와야한다.</li>
+<li>HTTP 클라이언트는 커넥션이 언제 끊어지더라도 완료되지 않은 요청이 있으면 요청을 다시 보낼 준비가 되어있어야. 서버가 반만 보내고 연결 끊을 수도.</li>
+<li><strong>POST와 같이 반복해서 보낼 경우 문제가 생기는 요청은 보내면 안된다.</strong></li>
+</ul>
+<h2 id="어떻게-커넥션을-끊을까" style="position:relative;"><a href="#%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%BB%A4%EB%84%A5%EC%85%98%EC%9D%84-%EB%81%8A%EC%9D%84%EA%B9%8C" aria-label="어떻게 커넥션을 끊을까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>어떻게 커넥션을 끊을까</h2>
+<ul>
+<li>마음대로 끊기
+주의: 몇번 실행됬는지에 상관 없이 결과가 같다면 멱등(idempotent)하다고 한다. GET, HEAD, PUT, DELETE 같은거. 그런데 POST 같이 멱등이 아닌 요청은 파이프라인을 통해 보내면 안된다.</li>
+<li>우아하게 끊기
+먼저 반만(출력체널)만 끊고 입력이 끊어지기를 기다릴 수도 있다.</li>
+</ul>
+<h1 id="7장-캐시" style="position:relative;"><a href="#7%EC%9E%A5-%EC%BA%90%EC%8B%9C" aria-label="7장 캐시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7장 캐시</h1>
+<p>캐시는 무엇을 해결할까:</p>
+<ul>
+<li>불필요한 데이터 전송</li>
+<li>대역폭 병목</li>
+<li>갑작스런 요청 쇄도</li>
+<li>거리로 인한 지연</li>
+</ul>
+<p>캐시는 무슨 문제가 있을까:</p>
+<ul>
+<li>캐시가 최신 정보인지 확인이 필요</li>
+</ul>
+<p>문제를 어떻게 해결할까:</p>
+<ul>
+<li>재검사(revalidation): 여러가지 방법이 있다. 예를들어 서버에 요청을 보내지만 If-Modified-Since 헤더를 이용. 안바뀌었으면 304 Not Modified 응답을 보낸다.</li>
+</ul>
+<h2 id="캐시-토폴로지" style="position:relative;"><a href="#%EC%BA%90%EC%8B%9C-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80" aria-label="캐시 토폴로지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>캐시 토폴로지</h2>
+<ul>
+<li>개인 전용 캐시: 예를 들어 브라우저 내장 캐시</li>
+<li>공용 프락시 캐시</li>
+<li>프락시 캐시에도 계층이 있을 수 있다.</li>
+</ul>
+<h2 id="캐시-처리-단계" style="position:relative;"><a href="#%EC%BA%90%EC%8B%9C-%EC%B2%98%EB%A6%AC-%EB%8B%A8%EA%B3%84" aria-label="캐시 처리 단계 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>캐시 처리 단계</h2>
+<ol>
+<li>요청 받기</li>
+<li>파싱: 캐시가 요청에서 URL과 헤더들을 추출</li>
+<li>검색: 가지고 있는가?</li>
+<li>신선도 검사: 가지고 있으면 신선한지 (잘) 검사</li>
+<li>응답 생성</li>
+<li>발송</li>
+<li>로깅</li>
+</ol>
+<h2 id="신선한-사본" style="position:relative;"><a href="#%EC%8B%A0%EC%84%A0%ED%95%9C-%EC%82%AC%EB%B3%B8" aria-label="신선한 사본 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>신선한 사본</h2>
+<p>HTTP는 Cache-Control과 Expires라는 헤더를 이용해 원 서버가 리소스에 유휴기간을 붙일 수 있도록 해준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Cache-Control: max-age=484200
+Expires: Fri, 05 Jul 2002, 05:00:00 GMT</code></pre></div>
+<p>Cache-Control: max-age는 남은 시간을 초로 지정. Expires는 유효기간은 GMT로 지정
+만약 캐시 서버의 시간이 동기화되있지 않으면 Expires는 잘 작동을 안 할 수도 있다.</p>
+<p>또는 ETag 사용: 주석 추가 같은 다르지만 같은 리소스나 최근 변경 일시를 정확하게 판별할 수 없거나 1초의 정밀도가 충분하지 않을 떄.</p>
+<h2 id="캐시제어" style="position:relative;"><a href="#%EC%BA%90%EC%8B%9C%EC%A0%9C%EC%96%B4" aria-label="캐시제어 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>캐시제어</h2>
+<ul>
+<li>Cache-Control: no-store: 리소스의 사본을 만드는 것을 금지. 개인정보가 들어있거나.</li>
+<li>Cache-Control: no-cache: 로컬 캐시 저장소에 저장될 수 있음. 다만 서버와 재검사 필수.</li>
+<li>Cache-Control: must-revalidate: 캐시는 성능 개선을 위해 만료된 객체를 제공할 수 있다. 이 헤더를 설정하면 ㅇ만료된 객체를 재검사 없이 재공해서는 안된다.</li>
+</ul>
+<h2 id="서버가-알려주지-않을-때" style="position:relative;"><a href="#%EC%84%9C%EB%B2%84%EA%B0%80-%EC%95%8C%EB%A0%A4%EC%A3%BC%EC%A7%80-%EC%95%8A%EC%9D%84-%EB%95%8C" aria-label="서버가 알려주지 않을 때 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서버가 알려주지 않을 때</h2>
+<p>캐시 서버는 알아서 추측한다. 예를들어</p>
+<ul>
+<li>마지막 변경일이 오래됬다면 안정적인 문서로 예측, vice versa.</li>
+</ul>
+<h2 id="클라이언트-신손도-제약" style="position:relative;"><a href="#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%8B%A0%EC%86%90%EB%8F%84-%EC%A0%9C%EC%95%BD" aria-label="클라이언트 신손도 제약 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>클라이언트 신손도 제약</h2>
+<ul>
+<li>Cache-Control: max-stale: 신선하지 않아도 된다.</li>
+<li>Cache-Control: min-fresh = &#x3C;s>: 만료기간이 s초 이상 남아야 한다.</li>
+<li>등등</li>
+</ul></div><div></div></div></div><footer class="footer"><div class="notice-container"><h4>Copyright © 2020, atobaum All rights reserved.</h4><a href="/rss.xml"><button type="button">RSS</button></a><h4>Based on<!-- --> <a href="https://github.com/Vagr9K/gatsby-advanced-starter">Gatsby Advanced Starter</a>.</h4></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/post/http-완벽-가이드-정리";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d1682d032ffba6afc377.js"],"app":["/app-3ac2700e212070434fba.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-1f3c0ae858ea5441e423.js"],"component---src-pages-about-jsx":["/component---src-pages-about-jsx-b463fead422289c71f6e.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-09eea3441d0c954749b1.js"],"component---src-templates-listing-jsx":["/component---src-templates-listing-jsx-c9e8d6855e94dbf1bbfc.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-b4e3813960dd4b6e3457.js"]};/*]]>*/</script><script src="/polyfill-d1682d032ffba6afc377.js" nomodule=""></script><script src="/component---src-templates-post-jsx-c3588bdd8c648385ea5e.js" async=""></script><script src="/e21e9ecfc099254b06ab7617f17d97212f9248d1-8d4ee3d6756fcaa0b68b.js" async=""></script><script src="/055375637444d55e4c67d9f02f16300c0f7f7ba2-3f609b02496475fb9b92.js" async=""></script><script src="/bb7f4ffa492396e127c4cdd5a08e6cd029ef69d4-f6aab4c731391199e123.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-3ac2700e212070434fba.js" async=""></script><script src="/532a2f07-d4557eaf6ec8afcfc04f.js" async=""></script><script src="/framework-2674486bf225d6eb4cc9.js" async=""></script><script src="/webpack-runtime-11ced529e28cd61d6f2a.js" async=""></script></body></html>
