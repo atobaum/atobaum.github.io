@@ -1,0 +1,11 @@
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 5px;
+  background-color: #bbbbbb;
+}
+.progress-bar-container > div {
+  background-color: var(--theme-color);
+  height: 100%;
+}
