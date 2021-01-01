@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --theme-color: #ffe400;
+}
+
+.theme-color {
+  color: var(--theme-color);
+}
+
 html {
   height: 100%;
 }
@@ -17,7 +25,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 20px;
 }
 
 .layout__content-container {

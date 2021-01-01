@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faRss } from "@fortawesome/free-solid-svg-icons";
 import "./Footer.css";
 
 function Footer({ config }) {
@@ -11,19 +15,20 @@ function Footer({ config }) {
   return (
     <footer className="footer">
       <div className="notice-container">
-        <h4>{copyright}</h4>
-
+        <a href="mailto:atobaum@gmail.com">
+          <FontAwesomeIcon icon={faEnvelope} size="2x" />
+        </a>
+        <a href="https://github.com/atobaum">
+          <FontAwesomeIcon icon={faGithub} size="2x" />
+        </a>
+        <a href="https://twitter.com/atobaum">
+          <FontAwesomeIcon icon={faTwitter} size="2x" />
+        </a>
         <Link to={url}>
-          <button type="button">RSS</button>
+          <FontAwesomeIcon icon={faRss} size="2x" />
         </Link>
-        <h4>
-          Based on{" "}
-          <a href="https://github.com/Vagr9K/gatsby-advanced-starter">
-            Gatsby Advanced Starter
-          </a>
-          .
-        </h4>
       </div>
+      <h4>{copyright}</h4>
     </footer>
   );
 }
