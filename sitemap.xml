@@ -5,6 +5,7 @@
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/4/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/5/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/테스트-주도-개발에-대한-생각</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/boj-1135-뉴스-전하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/boj-2188-축사배정</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/오일러-정리</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -17,8 +18,8 @@
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/베지어-곡선의-explicit-form-증명</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/bezier-curve</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/docker-compose</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/http-완벽-가이드-정리</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/객체지향의-사실과-오해</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/http-완벽-가이드-정리</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/javascript에서-이벤트를-만들어보자</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/도커로-웹서버-세팅하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/ec-2-우분투에-도커-설치하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -30,6 +31,8 @@
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/arch-linux-설치-가이드</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/이원석-서평-쓰는-법-을-읽고</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/big-sample-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/tdd/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/review/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/boj/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/탐욕법/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/알고리즘/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -48,10 +51,10 @@
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/proof/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/css/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/docker-compose/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/http/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/book/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/summary/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/oop/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/http/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/event/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/docker/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/tags/guide/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
