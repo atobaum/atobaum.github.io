@@ -1,68 +1,14 @@
-<div align="center" style="margin-bottom:30px">
-    <a href='https://github.com/vagr9k/gatsby-advanced-starter/blob/master/LICENSE'>
-    <img src="https://img.shields.io/github/license/vagr9k/gatsby-advanced-starter.svg" alt="Logo" />
-    </a>
-    <a href='https://github.com/vagr9k/gatsby-advanced-starter'>
-    <img src="https://img.shields.io/github/v/tag/Vagr9K/gatsby-advanced-starter" alt="Logo" />
-    </a>
-        <a href='https://github.com/vagr9k/gatsby-advanced-starter/stargazers'>
-    <img src="https://img.shields.io/github/stars/Vagr9K/gatsby-advanced-starter" alt="Logo" />
-    </a>
-        <a href="https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2FVagr9K%2Fgatsby-advanced-starter">
-    <img src="https://img.shields.io/twitter/url/https/github.com/vagr9k/gatsby-advanced-starter.svg?style=social" alt="Logo" />
-    </a>
-</div>
-
-<div align="center"  style="margin-bottom:30px">
-    <img src="static/logos/logo-1024.png" alt="Logo" width='200px' height='200px'/>
-</div>
-
-<div align="center">
-    <a href="https://codeclimate.com/github/Vagr9K/gatsby-advanced-starter">
-      <img src="https://codeclimate.com/github/Vagr9K/gatsby-advanced-starter/badges/gpa.svg" alt="Logo" />
-    </a>
-    <a href='https://codeclimate.com/github/Vagr9K/gatsby-advanced-starter'>
-      <img src="https://codeclimate.com/github/Vagr9K/gatsby-advanced-starter/badges/issue_count.svg" alt="Logo" />
-    </a>
-    <a href='https://www.codacy.com/app/Vagr9K/gatsby-advanced-starter?utm_source=github.com&utm_medium=referral&utm_content=Vagr9K/gatsby-advanced-starter&utm_campaign=Badge_Grade'>
-      <img src="https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820" alt="Logo" />
-    </a>
-    <a href='https://github.com/prettier/prettier'>
-      <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="Logo" />
-    </a>
-</div>
-
 # Gatsby Advanced Starter
 
 A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/).
 
 **NOTE**: This branch contains Gatsby v2 compatible version of the starter. To get the Gatsby v1 compatible version, use the [`v1`](https://github.com/Vagr9K/gatsby-advanced-starter/tree/v1) branch.
 
-## Lighthouse Audit Score
+## 새로운 포스트 만들기
 
-<div align="center">
-    <a href="https://developers.google.com/web/tools/lighthouse/">
-      <img src="docs/pwa-score.png" alt="Lighthouse Score" />
-    </a>
-</div>
-
-Check out the [Features](#features) to read about all [Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities of this starter in detail.
-
-## Why?
-
-This project aims to provide a minimal base for building advanced GatsbyJS powered websites.
-
-It doesn't define any UI limitations in any way and only gives you the basic components for SEO/Social Media/etc while creating a comfortable development environment to get started.
-
-You are free to use any UI framework/styling options.
-
-## How can I use this?
-
-If you are a newcomer to Gatsby who's interested in the implementations of most needed features, this is a great place to start.
-
-If you are interested in a foundation for building ultra-fast websites, you can use this project as a "minimal" starter.
-
-[Demo website.](https://gatsby-advanced-starter-demo.netlify.com)
+```shell
+yarn new "<title>"
+```
 
 ## Features
 
