@@ -8,7 +8,7 @@ const siteConfig = require("./data/SiteConfig");
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   let slug;
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === "MarkdownRemark" && node.frontmatter.title) {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
     if (
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { frontmatter: { title: { ne: "" } } }) {
         edges {
           node {
             fields {
@@ -59,7 +59,6 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               tags
-              category
               date
             }
           }
@@ -72,25 +71,64 @@ exports.createPages = async ({ graphql, actions }) => {
     console.error(markdownQueryResult.errors);
     throw markdownQueryResult.errors;
   }
+  const markdownNodes = markdownQueryResult.data.allMarkdownRemark.edges.map(
+    (edge) => ({ ...edge.node, source: "file" })
+  );
+
+  const contentfulBlogPostResult = await graphql(`
+    {
+      allContentfulBlogPost {
+        edges {
+          node {
+            id
+            contentful_id
+            slug
+            tags
+            content {
+              childMarkdownRemark {
+                excerpt
+                timeToRead
+              }
+            }
+            title
+            createdAt
+          }
+        }
+      }
+    }
+  `);
+  if (contentfulBlogPostResult.errors) {
+    console.error(contentfulBlogPostResult.errors);
+    throw contentfulBlogPostResult.errors;
+  }
+  const contentfulNodes = contentfulBlogPostResult.data.allContentfulBlogPost.edges.map(
+    (edge) => ({
+      source: "contentful",
+      fields: {
+        slug: "/" + edge.node.slug,
+      },
+      frontmatter: {
+        title: edge.node.title,
+        tags: edge.node.tags,
+        category: "",
+        date: edge.node.createdAt,
+      },
+    })
+  );
 
   const tagSet = new Set();
   const categorySet = new Set();
 
-  const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
+  const postsNodes = [...markdownNodes, ...contentfulNodes];
 
   // Sort posts
-  postsEdges.sort((postA, postB) => {
-    const dateA = moment(
-      postA.node.frontmatter.date,
-      siteConfig.dateFromFormat
-    );
+  postsNodes.sort((postA, postB) => {
+    console.log(postB);
+    const dateA = moment(postA.frontmatter.date, siteConfig.dateFromFormat);
 
-    const dateB = moment(
-      postB.node.frontmatter.date,
-      siteConfig.dateFromFormat
-    );
+    const dateB = moment(postB.frontmatter.date, siteConfig.dateFromFormat);
 
-    if (dateA.isBefore(dateB)) return 1;
+    // if (dateA.isBefore(dateB)) retur 1;
     if (dateB.isBefore(dateA)) return -1;
 
     return 0;
@@ -98,58 +136,56 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Paging
   const { postsPerPage } = siteConfig;
-  if (postsPerPage) {
-    const pageCount = Math.ceil(postsEdges.length / postsPerPage);
+  const pageCount = Math.ceil(postsNodes.length / postsPerPage);
 
-    [...Array(pageCount)].forEach((_val, pageNum) => {
-      createPage({
-        path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
-        component: listingPage,
-        context: {
-          limit: postsPerPage,
-          skip: pageNum * postsPerPage,
-          pageCount,
-          currentPageNum: pageNum + 1,
-        },
-      });
-    });
-  } else {
-    // Load the landing page instead
+  [...Array(pageCount)].forEach((_val, pageNum) => {
     createPage({
-      path: `/`,
-      component: landingPage,
+      path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
+      component: listingPage,
+      context: {
+        limit: postsPerPage,
+        skip: pageNum * postsPerPage,
+        pageCount,
+        currentPageNum: pageNum + 1,
+        posts: postsNodes.slice(
+          pageNum * postsPerPage,
+          (pageNum + 1) * postsPerPage
+        ),
+      },
     });
-  }
+  });
 
   // Post page creating
-  postsEdges.forEach((edge, index) => {
+  postsNodes.forEach((node, index) => {
     // Generate a list of tags
-    if (edge.node.frontmatter.tags) {
-      edge.node.frontmatter.tags.forEach((tag) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach((tag) => {
         tagSet.add(tag);
       });
     }
 
     // Generate a list of categories
-    if (edge.node.frontmatter.category) {
-      categorySet.add(edge.node.frontmatter.category);
+    if (node.frontmatter.category) {
+      categorySet.add(node.frontmatter.category);
     }
 
     // Create post pages
-    const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
-    const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
-    const nextEdge = postsEdges[nextID];
-    const prevEdge = postsEdges[prevID];
+    const nextID = index + 1 < postsNodes.length ? index + 1 : 0;
+    const prevID = index - 1 >= 0 ? index - 1 : postsNodes.length - 1;
+    const nextNode = postsNodes[nextID];
+    const prevNode = postsNodes[prevID];
 
     createPage({
-      path: `/post${edge.node.fields.slug}`,
+      path: `/post${node.fields.slug}`,
       component: postPage,
       context: {
-        slug: edge.node.fields.slug,
-        nexttitle: nextEdge.node.frontmatter.title,
-        nextslug: nextEdge.node.fields.slug,
-        prevtitle: prevEdge.node.frontmatter.title,
-        prevslug: prevEdge.node.fields.slug,
+        source: node.source,
+        slug: node.fields.slug,
+        contentful_slug: node.fields.slug.slice(1),
+        nexttitle: nextNode.frontmatter.title,
+        nextslug: nextNode.fields.slug,
+        prevtitle: prevNode.frontmatter.title,
+        prevslug: prevNode.fields.slug,
       },
     });
   });

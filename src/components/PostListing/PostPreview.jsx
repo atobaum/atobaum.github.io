@@ -4,9 +4,9 @@ import formatDate from "../../lib/formatDate";
 import PostTags from "../PostTags/PostTags";
 
 export default function PostPreview({ post }) {
-  const { date, excerpt, path, tags, timeToRead, title } = post;
+  const { date, excerpt, tags, timeToRead, title } = post.frontmatter;
   return (
-    <Link to={`/post${path}`} className="post-preview">
+    <Link to={`/post${post.fields.slug}`} className="post-preview">
       <header className="post-preview__header">
         <h2>{title}</h2>
       </header>

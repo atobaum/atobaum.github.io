@@ -1,5 +1,4 @@
 const urljoin = require("url-join");
-const path = require("path");
 const config = require("./data/SiteConfig");
 
 // Make sure that pathPrefix is not empty
@@ -36,6 +35,16 @@ module.exports = {
       options: {
         name: "posts",
         path: `${__dirname}/content/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: ``,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        accessToken: "",
+        downloadLocal: true,
       },
     },
     {
@@ -103,16 +112,6 @@ module.exports = {
     },
     "gatsby-plugin-offline",
     {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: path.resolve("src/netlifycms/index.js"), // default: undefined
-        enableIdentityWidget: true,
-        publicPath: "admin",
-        htmlTitle: "Content Manager",
-        includeRobots: false,
-      },
-    },
-    {
       resolve: "gatsby-plugin-feed",
       options: {
         setup(ref) {
@@ -171,9 +170,7 @@ module.exports = {
                     }
                     frontmatter {
                       title
-                      cover
                       date
-                      category
                       tags
                     }
                   }

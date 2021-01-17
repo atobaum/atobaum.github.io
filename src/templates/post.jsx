@@ -10,9 +10,25 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
 
+function mapToMarkdownRemark(contentful) {
+  return {
+    html: contentful.content.childMarkdownRemark.html,
+    timeToRead: contentful.content.childMarkdownRemark.timeToRead,
+    excerpt: contentful.content.childMarkdownRemark.excerpt,
+    frontmatter: {
+      title: contentful.title,
+      date: contentful.createdAt,
+      tags: contentful.tags,
+      // todo
+      latex: false,
+    },
+  };
+}
+
 export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
-  const postNode = data.markdownRemark;
+  const postNode =
+    data.markdownRemark || mapToMarkdownRemark(data.contentfulBlogPost);
   const post = postNode.frontmatter;
   if (!post.id) {
     post.id = slug;
@@ -41,7 +57,7 @@ export default function PostTemplate({ data, pageContext }) {
             id="MathJax-script"
             async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-          ></script>
+          />
         )}
       </Helmet>
       <SEO postPath={slug} postNode={postNode} postSEO />
@@ -61,23 +77,30 @@ export default function PostTemplate({ data, pageContext }) {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $contentful_slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
       excerpt
       frontmatter {
         title
-        cover
         date
-        category
         tags
         latex
       }
-      fields {
-        slug
-        date
+    }
+    contentfulBlogPost(slug: { eq: $contentful_slug }) {
+      tags
+      title
+      createdAt
+      content {
+        childMarkdownRemark {
+          html
+          excerpt
+          timeToRead
+        }
       }
+      slug
     }
   }
 `;
