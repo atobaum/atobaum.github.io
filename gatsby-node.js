@@ -333,13 +333,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   //  Create tag pages
-  tagSet.forEach((tag) => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
-      component: tagPage,
-      context: { tag },
-    });
-  });
+  // tagSet.forEach((tag) => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag)}/`,
+  //     component: tagPage,
+  //     context: { tag },
+  //   });
+  // });
 
   // Create category pages
   // categorySet.forEach((category) => {
