@@ -12,11 +12,7 @@ import "./post.css";
 
 export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
-  const postNode = data.markdownRemark;
-  const post = postNode.frontmatter;
-  if (!post.id) {
-    post.id = slug;
-  }
+  const post = data.blogPost;
   useEffect(() => {
     if (!post.latex) return;
     const s = document.createElement("script");
@@ -44,16 +40,16 @@ export default function PostTemplate({ data, pageContext }) {
           />
         )}
       </Helmet>
-      <SEO postPath={slug} postNode={postNode} postSEO />
+      <SEO postPath={slug} postNode={post} postSEO />
       <div className="post-container">
         <h1>{post.title}</h1>
         <div className="post-meta">
           <PostTags tags={post.tags} />
         </div>
         {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.parent.html }} />
         <UserInfo config={config} />
-        <Disqus postNode={postNode} />
+        {/* <Disqus postNode={post} /> */}
       </div>
     </Layout>
   );
@@ -61,17 +57,25 @@ export default function PostTemplate({ data, pageContext }) {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query MDBlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      timeToRead
-      excerpt
-      frontmatter {
-        title
-        date
-        tags
-        latex
+  query BlogPostBySlug($slug: String!) {
+    blogPost(slug: { eq: $slug }) {
+      latex
+      parent {
+        internal {
+          content
+          description
+          ignoreType
+          mediaType
+        }
+        ... on MarkdownRemark {
+          html
+        }
       }
+      slug
+      tags
+      title
+      excerpt
+      date
     }
   }
 `;

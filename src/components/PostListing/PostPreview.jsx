@@ -13,7 +13,6 @@ export default function PostPreview({ post }) {
       <section>{excerpt}</section>
       <footer>
         <time dateTime={date}>{formatDate(date)}</time>
-        <div>{timeToRead} min</div>
         <PostTags tags={tags} />
       </footer>
     </Link>

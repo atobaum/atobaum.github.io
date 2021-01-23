@@ -11,12 +11,11 @@ function SEO({ postNode, postPath, postSEO }) {
   let postURL;
 
   if (postSEO) {
-    const postMeta = postNode.frontmatter;
-    ({ title } = postMeta);
-    description = postMeta.description
-      ? postMeta.description
+    ({ title } = postNode);
+    description = postNode.description
+      ? postNode.description
       : postNode.excerpt;
-    image = postMeta.cover || "";
+    image = postNode.cover || "";
     postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
   } else {
     title = config.siteTitle;
@@ -37,12 +36,9 @@ function SEO({ postNode, postPath, postSEO }) {
 
   const getPublicationDate = () => {
     if (!postNode) return null;
+    if (!postNode.date) return null;
 
-    if (!postNode.frontmatter) return null;
-
-    if (!postNode.frontmatter.date) return null;
-
-    return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
+    return moment(postNode.date, config.dateFromFormat).toDate();
   };
 
   image = getImagePath(image);

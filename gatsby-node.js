@@ -4,9 +4,101 @@ const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
+const crypto = require("crypto");
 
 const MD = "MD";
 const CONTENTFUL = "CONTENTFUL";
+
+exports.onCreateNode = async ({ node, actions, getNode }) => {
+  const { createNodeField, createNode, createParentChildLink } = actions;
+  let slug;
+  if (node.internal.type === "MarkdownRemark") {
+    if (node.frontmatter.title) {
+      const fileNode = getNode(node.parent);
+      const parsedFilePath = path.parse(fileNode.relativePath);
+      if (
+        Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
+        Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
+      ) {
+        slug = `/${_.kebabCase(node.frontmatter.title)}`;
+      } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+      } else if (parsedFilePath.dir === "") {
+        slug = `/${parsedFilePath.name}/`;
+      } else {
+        slug = `/${parsedFilePath.dir}/`;
+      }
+
+      if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
+        if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
+          slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+        if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
+          const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
+          if (!date.isValid)
+            console.warn(`WARNING: Invalid date.`, node.frontmatter);
+
+          createNodeField({ node, name: "date", value: date.toISOString() });
+        }
+      }
+      createNodeField({ node, name: "slug", value: slug });
+
+      const data = {
+        title: node.frontmatter.title,
+        tags: node.frontmatter.tags,
+        excerpt: node.frontmatter.summary || "",
+        latex: node.frontmatter.latex,
+        date: node.frontmatter.date,
+        slug,
+      };
+
+      const blogPostNode = {
+        ...data,
+        id: node.id + "blogpost",
+        parent: node.id,
+        internal: {
+          type: "BlogPost",
+          contentDigest: crypto
+            .createHash("md5")
+            .update(JSON.stringify(data))
+            .digest("hex"),
+        },
+      };
+      createNode(blogPostNode);
+      createParentChildLink({ parent: node, child: blogPostNode });
+      return;
+    }
+
+    const parentNode = getNode(node.parent);
+    if (parentNode.internal.type === "contentfulBlogPostContentTextNode") {
+      const contentfulNode = getNode(parentNode.parent);
+      const data = {
+        title: contentfulNode.title,
+        tags: contentfulNode.tags,
+        excerpt: contentfulNode.summary || "",
+        latex: !!contentfulNode.latex,
+        date: contentfulNode.createdAt,
+        slug: "/" + contentfulNode.slug,
+      };
+
+      const blogPostNode = {
+        ...data,
+        id: node.id + "blogpost",
+        parent: node.id,
+        internal: {
+          type: "BlogPost",
+          contentDigest: crypto
+            .createHash("md5")
+            .update(JSON.stringify(data))
+            .digest("hex"),
+        },
+      };
+      createNode(blogPostNode);
+      createParentChildLink({ parent: node, child: blogPostNode });
+
+      return;
+    }
+  }
+};
 
 /**
  * needs title, slug, tags, excerpt, timeToRead, createdAt(date) to create page
@@ -33,7 +125,6 @@ async function getMdNodes(graphql) {
   `);
 
   function mapFromMd({ node }) {
-    console.log(node);
     return {
       source: MD,
       title: node.frontmatter.title,
@@ -64,7 +155,7 @@ async function getContentfulNodes(graphql) {
             id
             contentful_id
             slug
-            tags
+            tagblogPostNodes
             content {
               childMarkdownRemark {
                 excerpt
@@ -81,6 +172,7 @@ async function getContentfulNodes(graphql) {
 
   function mapFromContentful({ node }) {
     return {
+      contentful_id: node.contentful_id,
       source: CONTENTFUL,
       title: node.title,
       slug: "/" + node.slug,
@@ -105,7 +197,7 @@ async function getContentfulNodes(graphql) {
 function createPostPages(nodes, actions) {
   const { createPage } = actions;
   const mdPostPage = path.resolve("src/templates/post-md.jsx");
-  // const contentfulPostPage = path.resolve("src/templates/post-contentful.jsx");
+  const contentfulPostPage = path.resolve("src/templates/post-contentful.jsx");
 
   const tagSet = new Set();
 
@@ -133,6 +225,7 @@ function createPostPages(nodes, actions) {
       component: node.source === MD ? mdPostPage : contentfulPostPage,
       context: {
         slug: node.slug,
+        contentful_id: node.contentful_id,
         nexttitle: nextNode.title,
         nextslug: nextNode.slug,
         prevtitle: prevNode.title,
@@ -144,53 +237,41 @@ function createPostPages(nodes, actions) {
   return { tagSet };
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  let slug;
-  if (node.internal.type === "MarkdownRemark" && node.frontmatter.title) {
-    const fileNode = getNode(node.parent);
-    const parsedFilePath = path.parse(fileNode.relativePath);
-    if (
-      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
-    ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`;
-    } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
-      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
-    } else if (parsedFilePath.dir === "") {
-      slug = `/${parsedFilePath.name}/`;
-    } else {
-      slug = `/${parsedFilePath.dir}/`;
-    }
-
-    if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
-      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
-        slug = `/${_.kebabCase(node.frontmatter.slug)}`;
-      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
-        const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
-        if (!date.isValid)
-          console.warn(`WARNING: Invalid date.`, node.frontmatter);
-
-        createNodeField({ node, name: "date", value: date.toISOString() });
-      }
-    }
-    createNodeField({ node, name: "slug", value: slug });
-  }
-};
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const tagPage = path.resolve("src/templates/tag.jsx");
   // const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/listing.jsx");
 
+  const tagSet = new Set();
   // const categorySet = new Set();
 
-  // const postsNodes = [...(await getMdNodes(graphql)), ...(await getContentfulNodes(graphql))];
-  const postsNodes = [...(await getMdNodes(graphql))];
+  const blogPostQueryResult = await graphql(`
+    query BlogPosts {
+      allBlogPost {
+        edges {
+          node {
+            title
+            tags
+            slug
+            date
+          }
+        }
+      }
+    }
+  `);
+
+  if (blogPostQueryResult.errors) {
+    console.error(blogPostQueryResult.errors);
+    throw blogPostQueryResult.errors;
+  }
+
+  const blogPostNodes = blogPostQueryResult.data.allBlogPost.edges.map(
+    (edge) => edge.node
+  );
 
   // Sort posts
-  postsNodes.sort((postA, postB) => {
+  blogPostNodes.sort((postA, postB) => {
     const dateA = moment(postA.date, siteConfig.dateFromFormat);
     const dateB = moment(postB.date, siteConfig.dateFromFormat);
 
@@ -202,7 +283,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Paging
   const { postsPerPage } = siteConfig;
-  const pageCount = Math.ceil(postsNodes.length / postsPerPage);
+  const pageCount = Math.ceil(blogPostNodes.length / postsPerPage);
 
   [...Array(pageCount)].forEach((_val, pageNum) => {
     createPage({
@@ -213,7 +294,7 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: pageNum * postsPerPage,
         pageCount,
         currentPageNum: pageNum + 1,
-        posts: postsNodes.slice(
+        posts: blogPostNodes.slice(
           pageNum * postsPerPage,
           (pageNum + 1) * postsPerPage
         ),
@@ -221,7 +302,35 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const { tagSet } = createPostPages(postsNodes, actions);
+  const postPage = path.resolve("src/templates/post.jsx");
+
+  blogPostNodes.forEach((node, index) => {
+    // Generate a list of tags
+    if (node.tags) {
+      node.tags.forEach((tag) => {
+        tagSet.add(tag);
+      });
+    }
+
+    // Create post pages
+    const nextID = index + 1 < blogPostNodes.length ? index + 1 : 0;
+    const prevID = index - 1 >= 0 ? index - 1 : blogPostNodes.length - 1;
+    const nextNode = blogPostNodes[nextID];
+    const prevNode = blogPostNodes[prevID];
+
+    createPage({
+      path: `/post${node.slug}`,
+      component: postPage,
+      context: {
+        slug: node.slug,
+        contentful_id: node.contentful_id,
+        nexttitle: nextNode.title,
+        nextslug: nextNode.slug,
+        prevtitle: prevNode.title,
+        prevslug: prevNode.slug,
+      },
+    });
+  });
 
   //  Create tag pages
   tagSet.forEach((tag) => {
