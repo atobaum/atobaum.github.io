@@ -4,16 +4,15 @@ import formatDate from "../../lib/formatDate";
 import PostTags from "../PostTags/PostTags";
 
 export default function PostPreview({ post }) {
-  const { date, excerpt, path, tags, timeToRead, title } = post;
+  const { date, excerpt, tags, timeToRead, title, slug } = post;
   return (
-    <Link to={`/post${path}`} className="post-preview">
+    <Link to={`/post${slug}`} className="post-preview">
       <header className="post-preview__header">
         <h2>{title}</h2>
       </header>
       <section>{excerpt}</section>
       <footer>
         <time dateTime={date}>{formatDate(date)}</time>
-        <div>{timeToRead} min</div>
         <PostTags tags={tags} />
       </footer>
     </Link>

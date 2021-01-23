@@ -1,13 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./listing.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 function Paging({ currentPageNum, pageCount }) {
   const prevPage = currentPageNum - 1 === 1 ? "/" : `/${currentPageNum - 1}/`;
@@ -46,15 +47,15 @@ function Paging({ currentPageNum, pageCount }) {
   );
 }
 
-function Listing({ pageContext, data }) {
-  const postEdges = data.allMarkdownRemark.edges;
+function Listing({ pageContext }) {
+  const { posts } = pageContext;
   return (
     <Layout>
       <div className="listing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
           <SEO />
-          <PostListing postEdges={postEdges} />
+          <PostListing postNodes={posts} />
         </div>
         <Paging
           currentPageNum={pageContext.currentPageNum}
@@ -68,30 +69,29 @@ function Listing({ pageContext, data }) {
 export default Listing;
 
 /* eslint no-undef: "off" */
-export const listingQuery = graphql`
-  query ListingQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-      sort: { fields: [fields___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-            summary
-          }
-        }
-      }
-    }
-  }
-`;
+// export const listingQuery = graphql`
+//   query ListingQuery($skip: Int!, $limit: Int!) {
+//     allMarkdownRemark(
+//       sort: { fields: [fields___date], order: DESC }
+//       limit: $limit
+//       skip: $skip
+//     ) {
+//       edges {
+//         node {
+//           fields {
+//             slug
+//             date
+//           }
+//           excerpt
+//           timeToRead
+//           frontmatter {
+//             title
+//             tags
+//             date
+//             summary
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;

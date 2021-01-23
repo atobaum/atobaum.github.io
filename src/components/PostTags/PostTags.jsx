@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import { Link } from "gatsby";
+import { Link as span } from "gatsby";
 import "./PostTags.css";
 
 function PostTags({ tags }) {
@@ -8,13 +8,13 @@ function PostTags({ tags }) {
     <div className="post-tag-container">
       {tags &&
         tags.map((tag) => (
-          <Link
+          <span
             key={tag}
             style={{ textDecoration: "none" }}
             to={`/tags/${_.kebabCase(tag)}`}
           >
             <span className="tag">{tag}</span>
-          </Link>
+          </span>
         ))}
     </div>
   );

@@ -1,5 +1,5 @@
+require("dotenv").config();
 const urljoin = require("url-join");
-const path = require("path");
 const config = require("./data/SiteConfig");
 
 // Make sure that pathPrefix is not empty
@@ -39,12 +39,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACEID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-relative-images`,
-          },
+          // {
+          //   resolve: `gatsby-remark-relative-images`,
+          // },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -75,7 +84,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-catch-links",
-    "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
@@ -102,16 +110,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: path.resolve("src/netlifycms/index.js"), // default: undefined
-        enableIdentityWidget: true,
-        publicPath: "admin",
-        htmlTitle: "Content Manager",
-        includeRobots: false,
-      },
-    },
     {
       resolve: "gatsby-plugin-feed",
       options: {
@@ -171,9 +169,7 @@ module.exports = {
                     }
                     frontmatter {
                       title
-                      cover
                       date
-                      category
                       tags
                     }
                   }
