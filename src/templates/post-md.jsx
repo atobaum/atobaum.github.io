@@ -10,25 +10,9 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
 
-function mapToMarkdownRemark(contentful) {
-  return {
-    html: contentful.content.childMarkdownRemark.html,
-    timeToRead: contentful.content.childMarkdownRemark.timeToRead,
-    excerpt: contentful.content.childMarkdownRemark.excerpt,
-    frontmatter: {
-      title: contentful.title,
-      date: contentful.createdAt,
-      tags: contentful.tags,
-      // todo
-      latex: false,
-    },
-  };
-}
-
 export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
-  const postNode =
-    data.markdownRemark || mapToMarkdownRemark(data.contentfulBlogPost);
+  const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
   if (!post.id) {
     post.id = slug;
@@ -77,7 +61,7 @@ export default function PostTemplate({ data, pageContext }) {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $contentful_slug: String!) {
+  query MDBlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
@@ -88,19 +72,6 @@ export const pageQuery = graphql`
         tags
         latex
       }
-    }
-    contentfulBlogPost(slug: { eq: $contentful_slug }) {
-      tags
-      title
-      createdAt
-      content {
-        childMarkdownRemark {
-          html
-          excerpt
-          timeToRead
-        }
-      }
-      slug
     }
   }
 `;

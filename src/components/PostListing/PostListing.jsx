@@ -6,7 +6,7 @@ function PostListing({ postNodes }) {
   return (
     <ul className="post-listing">
       {postNodes.map((post) => (
-        <li key={post.fields.slug}>
+        <li key={post.slug}>
           <PostPreview post={post} />
         </li>
       ))}
