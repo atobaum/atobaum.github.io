@@ -53,63 +53,63 @@
 <h2 id="기능" style="position:relative;"><a href="#%EA%B8%B0%EB%8A%A5" aria-label="기능 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>기능</h2>
 <ul>
 <li>data fetching</li>
-<li>caching-</li>
+<li>caching</li>
 <li>syncing</li>
 <li>+dev tools</li>
 </ul>
 <h2 id="quick-start" style="position:relative;"><a href="#quick-start" aria-label="quick start permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick start</h2>
-<div class="gatsby-highlight" data-language="react"><pre class="language-react"><code class="language-react">async function getTodos({ queryKey }): Promise&lt;any&gt; {
-  const [_, id] = queryKey;
-  return { id, title: &quot;post title&quot; }
-}
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getTodos</span><span class="token punctuation">(</span><span class="token punctuation">{</span> queryKey <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>_<span class="token punctuation">,</span> id<span class="token punctuation">]</span> <span class="token operator">=</span> queryKey<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> id<span class="token punctuation">,</span> title<span class="token operator">:</span> <span class="token string">"post title"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-function Todos() {
-   // Access the client
-   const queryClient = useQueryClient()
+<span class="token keyword">function</span> <span class="token function">Todos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Access the client</span>
+   <span class="token keyword">const</span> queryClient <span class="token operator">=</span> <span class="token function">useQueryClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-   // Queries
-   const id = 1;
-   const todo = useQuery([&#39;todo&#39;, id], getTodos);
+   <span class="token comment">// Queries</span>
+   <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token keyword">const</span> todo <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'todo'</span><span class="token punctuation">,</span> id<span class="token punctuation">]</span><span class="token punctuation">,</span> getTodos<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   // Mutations
-   const mutation = useMutation(postTodo, {
-     onSuccess: () =&gt; {
-       // Invalidate and refetch
-       queryClient.invalidateQueries([&#39;todo&#39;, id])
-     },
-   })
+   <span class="token comment">// Mutations</span>
+   <span class="token keyword">const</span> mutation <span class="token operator">=</span> <span class="token function">useMutation</span><span class="token punctuation">(</span>postTodo<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+     <span class="token function-variable function">onSuccess</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+       <span class="token comment">// Invalidate and refetch</span>
+       queryClient<span class="token punctuation">.</span><span class="token function">invalidateQueries</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'todo'</span><span class="token punctuation">,</span> id<span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-   return (
-     &lt;div&gt;
-       { todo.isLoading &amp;&amp; &lt;span&gt;loading&lt;/span&gt; }
-       { todo.isError &amp;&amp; &lt;span&gt;error&lt;/span&gt; }
-       { todo.data &amp;&amp; &lt;span&gt;{todo.data.title}&lt;/span&gt; }
+   <span class="token keyword">return</span> <span class="token punctuation">(</span>
+     <span class="token operator">&lt;</span>div<span class="token operator">></span>
+       <span class="token punctuation">{</span> todo<span class="token punctuation">.</span>isLoading <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>span<span class="token operator">></span>loading<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span> <span class="token punctuation">}</span>
+       <span class="token punctuation">{</span> todo<span class="token punctuation">.</span>isError <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>span<span class="token operator">></span>error<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span> <span class="token punctuation">}</span>
+       <span class="token punctuation">{</span> todo<span class="token punctuation">.</span>data <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>data<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span> <span class="token punctuation">}</span>
 
-       &lt;button
-         onClick={() =&gt; {
-           mutation.mutate({
-             id,
-             title: &#39;Do Laundry&#39;,
-           })
-         }}
-       &gt;
+       <span class="token operator">&lt;</span>button
+         onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+           mutation<span class="token punctuation">.</span><span class="token function">mutate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+             id<span class="token punctuation">,</span>
+             title<span class="token operator">:</span> <span class="token string">'Do Laundry'</span><span class="token punctuation">,</span>
+           <span class="token punctuation">}</span><span class="token punctuation">)</span>
+         <span class="token punctuation">}</span><span class="token punctuation">}</span>
+       <span class="token operator">></span>
          Update Todo
-       &lt;/button&gt;
-     &lt;/div&gt;
-   )
- }
+       <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+   <span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
 
- // Create a client
- const queryClient = new QueryClient()
+ <span class="token comment">// Create a client</span>
+ <span class="token keyword">const</span> queryClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
- function App() {
-   return (
-     // Provide the client to your App
-     &lt;QueryClientProvider client={queryClient}&gt;
-       &lt;Todos /&gt;
-     &lt;/QueryClientProvider&gt;
-   )
- }</code></pre></div>
+ <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token punctuation">(</span>
+     <span class="token comment">// Provide the client to your App</span>
+     <span class="token operator">&lt;</span>QueryClientProvider client<span class="token operator">=</span><span class="token punctuation">{</span>queryClient<span class="token punctuation">}</span><span class="token operator">></span>
+       <span class="token operator">&lt;</span>Todos <span class="token operator">/</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span><span class="token operator">/</span>QueryClientProvider<span class="token operator">></span>
+   <span class="token punctuation">)</span>
+ <span class="token punctuation">}</span></code></pre></div>
 <h2 id="장점" style="position:relative;"><a href="#%EC%9E%A5%EC%A0%90" aria-label="장점 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>장점</h2>
 <ul>
 <li>
