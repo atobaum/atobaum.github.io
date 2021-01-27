@@ -5,6 +5,7 @@
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/4/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/5/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/react-query</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/테스트-주도-개발에-대한-생각</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/boj-1135-뉴스-전하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-advanced-starter-demo.netlify.com/post/boj-2188-축사배정</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
